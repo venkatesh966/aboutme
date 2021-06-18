@@ -16,16 +16,16 @@ class Resume extends Component {
 
     const skillmessage = this.props.data.skillmessage;
     const education = this.props.data.education.map(function (education) {
-      return (
-        <div key={education.school}>
-          <h3>{education.school}</h3>
-          <p className="info">
-            {education.degree} <span>&bull;</span>
-            <em className="date">{education.graduated}</em>
-          </p>
-          <p>{education.description}</p>
-        </div>
-      );
+      // return (
+      //   <div key={education.school}>
+      //     <h3>{education.school}</h3>
+      //     <p className="info">
+      //       {education.degree} <span>&bull;</span>
+      //       <em className="date">{education.graduated}</em>
+      //     </p>
+      //     <p>{education.description}</p>
+      //   </div>
+      // );
     });
 
     const work = this.props.data.work.map(function (work) {
@@ -58,16 +58,16 @@ class Resume extends Component {
       <section id="resume">
         <Slide left duration={1300}>
           <div className="row education">
-            <div className="three columns header-col">
+            {/* <div className="three columns header-col">
               <h1>
                 <span>Education</span>
               </h1>
-            </div>
+            </div> */}
 
             <div className="nine columns main-col">
-              <div className="row item">
+              {/* <div className="row item">
                 <div className="twelve columns">{education}</div>
-              </div>
+              </div> */}
             </div>
           </div>
         </Slide>
