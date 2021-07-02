@@ -3,10 +3,10 @@
     "name":"Venkatesh",
     "description":"I am a web development engineer",
     "image":"profilepic.jpg",
-    "bio":"Simple And Passionate",
+    "bio":"Experienced Software Engineer with a demonstrated history of working in the internet industry. Skilled in Full stack web development. Strong engineering professional with a Bachelor of Technology focused in Computer Science",
     "contactmessage":"",
     "email": "venkateshmorpoju@gmail.com",
-    "phone": "8331945147",
+    "phone": "7981312363",
     "github":"https://github.com/venkatesh966/",
     "project":"",
     "address":{
@@ -51,19 +51,31 @@
         "company":"Quanteon Solutions",
         "title":"Full Stack Developer",
         "years":"June 2019 - Present",
-        "description":"Worked on multiple projects with different cutting edge technologies "
+        "description":"Worked with Javascript, ReactJs, NodeJS, Redux, React Native, Angular, Postgresql, AWS (EC2,Code Deploy) to develop Data Analytics product"
       },
       {
         "company":"Foyr",
         "title":"Mean Stack Developer",
-        "years":"May 2018 - June 2018",
-        "description":"Worked on multiple projects with different cutting edge technologies"
+        "years":"May 2018 - June 2019",
+        "description":"Worked with Javascript, Angular, NodeJS,Mongo DB to develop Interior Designing Software Product"
       }
     ],
     "skills":[
       {
+        "name":"Javascript",
+        "level":"78%"
+      },
+      {
+        "name":"Html & Css",
+        "level":"75%"
+      },
+      {
         "name":"React Js",
         "level":"75%"
+      },
+      {
+        "name":"React Native",
+        "level":"65%"
       },
       {
         "name":"Angular",
@@ -71,17 +83,12 @@
       },
       {
         "name":"Node Js",
-        "level":"70%"
+        "level":"75%"
       },
       {
-        "name":"CSS",
-        "level":"80%"
-      },
-      {
-        "name":"React Native",
-        "level":"70%"
+        "name":"Databases",
+        "level":"65%"
       }
-     
     ]
   },
   "portfolio":{
