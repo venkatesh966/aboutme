@@ -56,21 +56,21 @@ class Resume extends Component {
 
     return (
       <section id="resume">
-        <Slide left duration={1300}>
+        {/* <Slide left duration={1300}> 
           <div className="row education">
-            {/* <div className="three columns header-col">
+            <div className="three columns header-col">
               <h1>
                 <span>Education</span>
               </h1>
-            </div> */}
+            </div>
 
             <div className="nine columns main-col">
-              {/* <div className="row item">
+              <div className="row item">
                 <div className="twelve columns">{education}</div>
-              </div> */}
+              </div>
             </div>
           </div>
-        </Slide>
+        </Slide> */}
 
         <Slide left duration={1300}>
           <div className="row work">
