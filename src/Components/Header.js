@@ -3,6 +3,23 @@ import ParticlesBg from "particles-bg";
 import Fade from "react-reveal";
 
 class Header extends Component {
+
+  constructor(props) {
+    super(props)
+    this.myRef = React.createRef()  
+    this.scrollData = this.scrollData.bind(this)
+  }
+
+
+  componentDidMount() {
+    this.scrollData()
+  }
+
+  scrollData() {
+    console.log(this)
+    window.scrollTo(0,  this?.myRef?.current?.offsetTop)
+  }
+
   render() {
     if (!this.props.data) return null;
 
@@ -37,29 +54,29 @@ class Header extends Component {
           </a>
 
           <ul id="nav" className="nav">
+         
             <li className="current">
-              <a className="smoothscroll" href="#home">
+              <a id='home1' className="smoothscroll" href="#home">
                 Home
               </a>
             </li>
-
             <li>
-              <a className="smoothscroll" href="#about">
+              <a onClick={this.scrollData} id='portfolio1' className="smoothscroll" href="#articles">
+                Works
+              </a>
+            </li>
+            <li>
+              <a id='about1' className="smoothscroll" href="#about">
                 About
               </a>
             </li>
 
-            <li>
-              <a className="smoothscroll" href="#resume">
+            {/* <li>
+              <a id='resume1' className="smoothscroll" href="#resume">
                 Resume
               </a>
-            </li>
-
-            {/* <li>
-              <a className="smoothscroll" href="#portfolio">
-                Works
-              </a>
             </li> */}
+          
 
             {/* <li>
               <a className="smoothscroll" href="#contact">

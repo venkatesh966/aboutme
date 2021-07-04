@@ -12,6 +12,7 @@ class Resume extends Component {
   }
 
   render() {
+    return null
     if (!this.props.data) return null;
 
     const skillmessage = this.props.data.skillmessage;
