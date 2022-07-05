@@ -1,46 +1,63 @@
 {
   "main": {
-    "name":"Venkatesh",
-    "description":"I am a Full Stack engineer",
+    "name":"Venkatesh Morpoju",
+    "description":"I am a Full Stack Developer",
     "image":"profilepic.jpg",
-    "bio":"Experienced Software Engineer with a demonstrated history of working in the internet industry. Skilled in Full stack web development. Strong engineering professional with a Bachelor of Technology focussed in Computer Science",
-    "contactmessage":"",
-    "email": "venkateshmorpoju@gmail.com",
-    "phone": "+1 (762) 772-0839",
-    "github":"https://github.com/venkatesh966/",
-    "project":"",
+    "bio":"Experienced Software Engineer with a demonstrated history of working in the internet industry. Skilled in Web and Mobile development. Strong engineering professional with a Bachelor of Technology focussed in Computer Science",
+    "contactmessage":"Here is where you should write your message to readers to have them get in contact with you.",
+    "email": "youremailhere@gmail.com",
+    "phone": "555-555-5555",
+    "github":"https://github.com/venkatesh966",
+    "project":"https://www.linkedin.com/in/venkatesh-morpoju/",
     "address":{
       "street":"(Your Street)",
       "city":"(Your City)",
       "state":"(Your State)",
       "zip": "(Your Zip/Postal Code)"
     },
+    "website": "http://www.timbakerdev.com",
+    "resumedownload":"http://timbakerdev.com",
     "social":[
       {
+        "name":"facebook",
+        "url":"https://github.com/nordicgiant2/react-nice-resume",
+        "className":"fa fa-facebook"
+      },
+      {
+        "name":"twitter",
+        "url":"http://twitter.com",
+        "className":"fa fa-twitter"
+      },
+      {
         "name":"linkedin",
-        "url":"https://www.linkedin.com/in/venkatesh-morpoju-03613813a/",
+        "url":"https://www.linkedin.com/in/tim-baker-8420009a/",
         "className":"fa fa-linkedin"
       },
       {
+        "name":"instagram",
+        "url":"http://instagram.com/tbaker_x",
+        "className":"fa fa-instagram"
+      },
+      {
         "name":"github",
-        "url":"https://github.com/venkatesh966/",
+        "url":"https://github.com/nordicgiant2/react-nice-resume",
         "className":"fa fa-github"
       }
     ]
   },
   "resume":{
-    "skillmessage":"Top Skills",
+    "skillmessage":"",
     "education":[
       {
-        "school":"",
-        "degree":"",
-        "graduated":"",
+        "school":"University Of Georgia",
+        "degree":"Masters in Computer Science",
+        "graduated":"Jan 2022 - Present",
         "description":""
       },
       {
-        "school":"",
-        "degree":"",
-        "graduated":"",
+        "school":"Sreenidhi Institute Of Science And Technology",
+        "degree":"Bachelor's In Computer Science",
+        "graduated":"March 2018",
         "description":""
       }
     ],
@@ -64,6 +81,10 @@
         "level":"78%"
       },
       {
+        "name":"Java",
+        "level":"50%"
+      },
+      {
         "name":"Html & Css",
         "level":"75%"
       },
@@ -77,7 +98,7 @@
       },
       {
         "name":"Angular",
-        "level":"50%"
+        "level":"60%"
       },
       {
         "name":"Node Js",
@@ -92,16 +113,32 @@
   "portfolio":{
     "projects": [
       {
-        "title":"InAppBI",
-        "category":"Data Analytics Product",
-        "image":"inappbi.png",
-        "url":"https://www.inappbi.com"
+        "title":"Simplefin ",
+        "desc":"(Business App for Mobile)",
+        "category":"My Travel Blog for my post-university travels",
+        "image":"01.png",
+        "url":"https://www.simplefin.in"
       },
       {
-        "title":"Foyr",
-        "category":"Interior Design website",
-        "image":"02.jpg",
-        "url":"http://create.foyr.com"
+        "title":"InAppBI",
+        "desc":"(Analytics Tool For Web)",
+        "category":"(offline now) A fighting gear company I started",
+        "image":"02.png",
+        "url":"https:/www.inappbi.com/"
+      },
+      {
+        "title":"Foyr Neo",
+        "desc":"(Designer Product For Web)",
+        "category":"Website I built for a restaurant I like in Thailand",
+        "image":"03.png",
+        "url":"https://neo.foyr.com/"
+      },
+      {
+        "title":"Quanteon Solutions",
+        "desc":"(Static Site For Web)",
+        "category":"Website I built for a restaurant I like in Thailand",
+        "image":"04.png",
+        "url":"http://www.quanteonsolutions.com/"
       }
     ]
   }
