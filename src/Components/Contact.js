@@ -3,7 +3,7 @@ import { Fade, Slide } from "react-reveal";
 
 class Contact extends Component {
   render() {
-    return null
+    return null;
     if (!this.props.data) return null;
 
     const name = this.props.data.name;
