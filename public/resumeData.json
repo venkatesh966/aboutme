@@ -116,28 +116,28 @@
         "title":"Simplefin ",
         "desc":"(Business App for Mobile)",
         "category":"My Travel Blog for my post-university travels",
-        "image":"01.png",
+        "image":"01.jpg",
         "url":"https://www.simplefin.in"
       },
       {
         "title":"InAppBI",
         "desc":"(Analytics Tool For Web)",
         "category":"(offline now) A fighting gear company I started",
-        "image":"02.png",
+        "image":"02.jpg",
         "url":"https:/www.inappbi.com/"
       },
       {
         "title":"Foyr Neo",
         "desc":"(Designer Product For Web)",
         "category":"Website I built for a restaurant I like in Thailand",
-        "image":"03.png",
+        "image":"03.jpg",
         "url":"https://neo.foyr.com/"
       },
       {
         "title":"Quanteon Solutions",
         "desc":"(Static Site For Web)",
         "category":"Website I built for a restaurant I like in Thailand",
-        "image":"04.png",
+        "image":"04.jpg",
         "url":"http://www.quanteonsolutions.com/"
       }
     ]
