@@ -3,7 +3,7 @@
     "name":"Venkatesh Morpoju",
     "description":"I am a Full Stack Developer",
     "image":"profilepic.jpg",
-    "bio":"Experienced Software Engineer with a demonstrated history of working in the internet industry. Skilled in Web and Mobile development. Strong engineering professional with a Bachelor of Technology focussed in Computer Science",
+    "bio":"Experienced Full Stack Developer with a strong foundation in Computer Science. Skilled in a wide range of technologies, including ReactJS, Spring Boot, MongoDB, and more. I've contributed to projects at Copart, Agricultural Sciences UGA, and Quanteon Solutions, optimizing performance, developing secure platforms, and enhancing user experiences. Currently pursuing a Master's in Computer Science at the University of Georgia, I'm passionate about creating innovative solutions that drive business success",
     "contactmessage":"Here is where you should write your message to readers to have them get in contact with you.",
     "email": "youremailhere@gmail.com",
     "phone": "555-555-5555",
@@ -63,16 +63,40 @@
     ],
     "work":[
       {
+        "company":"Copart",
+        "title":"Software Developer Intern",
+        "years":"May 2023 - Aug 2023",
+        "description":"I have expertise in Java, Spring Boot, Hibernate, ReactJS, MySQL, and Redis, which I leveraged to optimize system performance. Notably, I implemented Redis caching for Yard Core and Auction Core microservices, leading to reduced server load and improved data access efficiency. Furthermore, I contributed to the development of RESTful APIs for various auction operations and rigorously tested them with JUnit to ensure software reliability"
+      },
+      {
+        "company":"Agricultural Sciences UGA",
+        "title":"Student Assistant Web Developer",
+        "years":"May 2022 -  Present",
+        "description":"I've developed a user-friendly research paper publication platform, secured it with authentication features, and established seamless communication between front-end and back-end systems through RESTful APIs. My work has contributed to an improved online experience for UGA faculty and students"
+      },
+      {
+        "company":"EITS UGA",
+        "title":"IT Support Assistant",
+        "years":"Jan 2022 - April 2022",
+        "description":"Worked with Javascript, Solidity, ReactJs, NodeJS, Web3, Redux, React Native, Angular, Postgresql, AWS (EC2,Code Deploy) to develop Data Analytics product"
+      },
+      {
         "company":"Quanteon Solutions",
         "title":"Full Stack Developer",
         "years":"June 2019 - Sep 2021",
-        "description":"Worked with Javascript, Solidity, ReactJs, NodeJS, Web3, Redux, React Native, Angular, Postgresql, AWS (EC2,Code Deploy) to develop Data Analytics product"
+        "description":"I have worked on projects that involved creating user-friendly interfaces, implementing data visualizations, and enhancing security features. My work improved web and mobile components, resulting in a 30% codebase improvement, and I also optimized a dynamic website for better online performance."
       },
       {
         "company":"Foyr",
         "title":"Mean Stack Developer",
         "years":"May 2018 - June 2019",
-        "description":"Worked with Javascript, Angular, NodeJS,Mongo DB to develop Interior Designing Software Product"
+        "description":"I have worked on building a centralized notification system, integrating 3D views with Google Maps, and implementing a comments module for user communication. These efforts aimed to enhance the functionality and user experience of Foyr's products"
+      },
+      {
+        "company":"Berkadia",
+        "title":"Software Developer Intern",
+        "years":"Nov 2017 - Jan 2018",
+        "description":"At Berkadia, I played a pivotal role in designing and developing the All-in-One portal, utilizing Angular 4 for the frontend and PHP for the backend. This comprehensive platform empowered users to efficiently consolidate and manage their information and tasks in one convenient place. "
       }
     ],
     "skills":[
@@ -81,20 +105,12 @@
         "level":"78%"
       },
       {
+        "name":"Java",
+        "level":"70%"
+      },
+      {
         "name":"Python",
         "level":"50%"
-      },
-      {
-        "name":"Java",
-        "level":"50%"
-      },
-      {
-        "name":"Solidity",
-        "level":"40%"
-      },
-      {
-        "name":"Html & Css",
-        "level":"75%"
       },
       {
         "name":"React Js",
@@ -109,6 +125,10 @@
         "level":"60%"
       },
       {
+        "name":"Spring Boot",
+        "level":"75%"
+      },
+      {
         "name":"Node Js",
         "level":"75%"
       },
@@ -119,6 +139,14 @@
       {
         "name":"AWS",
         "level":"50%"
+      },
+      {
+        "name":"Docker",
+        "level":"65%"
+      },
+      {
+        "name":"Html & Css",
+        "level":"75%"
       }
     ]
   },
