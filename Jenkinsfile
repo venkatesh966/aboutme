@@ -1,12 +1,25 @@
 pipeline {
     agent any
 
+    environment {
+        // Define any environment variables if necessary
+        NODE_ENV = 'development'
+    }
+
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
-                script {
-                    // Build React App
-                    dir('/') {
+                // Checkout the code from the Git repository
+                checkout scm
+            }
+        }
+
+        stage('Build React App') {
+            steps {
+                // Navigate to the React app directory and build the React application
+                dir('aboutme') {
+                    script {
+                        // Install dependencies and build the React app
                         sh 'npm install'
                         sh 'npm run build'
                     }
@@ -14,14 +27,23 @@ pipeline {
             }
         }
 
+        stage('Install Node.js Dependencies') {
+            steps {
+                dir('aboutme') {
+                    script {
+                        // Install Node.js dependencies
+                        sh 'npm install'
+                    }
+                }
+            }
+        }
+
         stage('Deploy') {
             steps {
-                script {
-                    // Deploy Node.js App
-                    dir('/') {
-                        sh 'npm install'
-                        // Restart the Node.js server
-                        sh 'node app'
+                dir('aboutme') {
+                    script {
+                        // Restart the Node.js server or perform other deployment actions
+                        sh 'node app'  // Adjust according to your deployment strategy
                     }
                 }
             }
@@ -30,8 +52,8 @@ pipeline {
 
     post {
         always {
-            // Actions that run after the build, regardless of success or failure
             echo 'Cleaning up...'
+            // Add any cleanup actions if needed
         }
     }
 }
