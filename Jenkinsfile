@@ -17,7 +17,7 @@ pipeline {
             steps {
                 dir('aboutme') {
                     script {
-                        sh 'npm install'
+                        sh 'npm install --force'
                         sh 'npm run build'
                     }
                 }
