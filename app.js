@@ -43,7 +43,7 @@
    res.sendFile(path.resolve(__dirname, './build', 'index.html'))
  })
  
- server.listen(8081, '0.0.0.0', (err) => {
+ server.listen(4000, 'localhost', (err) => {
      console.log('app running')
    if (
      environment !== 'production' &&
