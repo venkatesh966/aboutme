@@ -58,8 +58,12 @@ pipeline {
                         echo "Starting the Node.js server..."
                         nohup node app.js > server.log 2>&1 &
 
-                        # Wait a few seconds for the server to start
-                        sleep 40
+                        # Wait a bit longer to ensure the server starts
+                        sleep 60
+
+                        # Output server logs for debugging
+                        echo "Server logs:"
+                        tail -n 50 server.log
                         '''
                     }
                 }
@@ -70,10 +74,10 @@ pipeline {
             steps {
                 script {
                     sh '''
-                    # Wait for the server to start
+                    # Wait for the server to be fully operational
                     sleep 10
 
-                    # Verify the server is running
+                    # Verify if the server is responding
                     if curl -sSf http://localhost:4200 > /dev/null; then
                         echo "Server is up and running."
                     else
@@ -89,6 +93,13 @@ pipeline {
     post {
         always {
             echo 'Cleaning up...'
+            // Optionally, stop the server if you want to ensure it is stopped after the build
+            sh '''
+            if pgrep -f "node app.js" > /dev/null; then
+                echo "Stopping the Node.js server..."
+                pkill -f "node app.js"
+            fi
+            '''
         }
     }
 }
