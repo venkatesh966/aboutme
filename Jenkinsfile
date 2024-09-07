@@ -56,7 +56,13 @@ pipeline {
 
                         echo "Starting the Node.js server..."
                         nohup node app.js > server.log 2>&1 &
+
+                        
+                        sleep 5
+                        echo "Checking server status..."
+                        curl -I http://localhost:4000 || echo "Server is not responding"
                         '''
+                       
                     }
                 }
             }
