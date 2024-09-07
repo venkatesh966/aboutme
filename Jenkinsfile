@@ -16,12 +16,14 @@ pipeline {
         stage('Prepare Dependencies') {
             steps {
                 script {
-                    // Remove react-reveal from package.json
-                    sh 'jq \'del(.dependencies["react-reveal"])\' package.json > package-temp.json'
-                    sh 'mv package-temp.json package.json'
-
-                    // Install dependencies without react-reveal
-                    sh 'npm install'
+                    // Remove react-reveal from package.json using sed
+                    sh '''
+                    # Remove "react-reveal" from dependencies
+                    sed -i '' '/"react-reveal":/d' package.json
+                    
+                    # Install dependencies except react-reveal
+                    npm install
+                    '''
                     
                     // Re-add react-reveal to package.json and install it
                     sh 'npm install react-reveal --legacy-peer-deps'
