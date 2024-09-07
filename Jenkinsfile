@@ -13,13 +13,28 @@ pipeline {
             }
         }
 
+        stage('Prepare Dependencies') {
+            steps {
+                script {
+                    // Remove react-reveal from package.json
+                    sh 'jq \'del(.dependencies["react-reveal"])\' package.json > package-temp.json'
+                    sh 'mv package-temp.json package.json'
+
+                    // Install dependencies without react-reveal
+                    sh 'npm install'
+                    
+                    // Re-add react-reveal to package.json and install it
+                    sh 'npm install react-reveal --legacy-peer-deps'
+                }
+            }
+        }
+
         stage('Build React App') {
             steps {
                 dir('aboutme') {
                     script {
-                        // Disable ESLint checks
-                        sh 'npm install --force'
-                        sh 'npm run build' // ESLint should not be triggered during the build
+                        // Build the React application
+                        sh 'npm run build'
                     }
                 }
             }
@@ -39,7 +54,16 @@ pipeline {
             steps {
                 dir('aboutme') {
                     script {
-                        sh 'node app.js'
+                        // Restart the Node.js server or perform other deployment actions
+                        sh '''
+                        if pgrep -f "node app.js" > /dev/null; then
+                            echo "Stopping the Node.js server..."
+                            pkill -f "node app.js"
+                        fi
+
+                        echo "Starting the Node.js server..."
+                        nohup node app.js > server.log 2>&1 &
+                        '''
                     }
                 }
             }
