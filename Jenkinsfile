@@ -59,11 +59,11 @@ pipeline {
                         nohup node app.js > server.log 2>&1 &
 
                         # Wait a bit longer to ensure the server starts
-                        sleep 60
+                        sleep 30
 
                         # Output server logs for debugging
                         echo "Server logs:"
-                        tail -n 50 server.log
+                        tail -n 20 server.log
                         '''
                     }
                 }
@@ -78,7 +78,7 @@ pipeline {
                     sleep 10
 
                     # Verify if the server is responding
-                    if curl -sSf http://localhost:4200 > /dev/null; then
+                    if curl -sSf http://localhost:4300 > /dev/null; then
                         echo "Server is up and running."
                     else
                         echo "Server is not responding. Check server.log for details."
