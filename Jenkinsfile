@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     environment {
-        // Ensures the PATH includes the location of npm and Node.js installed by Homebrew
         PATH = "/opt/homebrew/bin:${PATH}"
     }
 
@@ -15,18 +14,23 @@ pipeline {
 
         stage('Prepare Dependencies') {
             steps {
-                script {
-                    // Remove react-reveal from package.json using sed
-                    sh '''
-                    # Remove "react-reveal" from dependencies
-                    sed -i '' '/"react-reveal":/d' package.json
-                    
-                    # Install dependencies except react-reveal
-                    npm install
-                    '''
-                    
-                    // Re-add react-reveal to package.json and install it
-                    sh 'npm install react-reveal --legacy-peer-deps'
+                dir('aboutme') {
+                    script {
+                        // Remove react-reveal from dependencies
+                        sh 'sed -i "" "/\"react-reveal\":/d" package.json'
+                        
+                        // List contents before installing dependencies
+                        sh 'ls -l'
+
+                        // Install dependencies
+                        sh 'npm install'
+                        
+                        // Reinstall react-reveal with legacy peer deps
+                        sh 'npm install react-reveal --legacy-peer-deps'
+                        
+                        // List contents after installing dependencies
+                        sh 'ls -l'
+                    }
                 }
             }
         }
@@ -35,9 +39,14 @@ pipeline {
             steps {
                 dir('aboutme') {
                     script {
+                        // List contents before build
+                        sh 'ls -l'
+
                         // Build the React application
                         sh 'npm run build'
-                        sh 'ls -l build'
+                        
+                        // List contents after build
+                        sh 'ls -l'
                     }
                 }
             }
@@ -47,16 +56,21 @@ pipeline {
             steps {
                 dir('aboutme') {
                     script {
-                        // Restart the Node.js server or perform other deployment actions
-                        sh '''
-                        if pgrep -f "node app.js" > /dev/null; then
-                            echo "Stopping the Node.js server..."
-                            pkill -f "node app.js"
-                        fi
+                        // Ensure that the build folder exists before deploying
+                        if (fileExists('build')) {
+                            // Check if the Node.js server is running and stop it if necessary
+                            if (sh(script: 'pgrep -f "node app.js"', returnStatus: true) == 0) {
+                                echo 'Stopping the Node.js server...'
+                                sh 'pkill -f "node app.js"'
+                            }
 
-                        echo "Starting the Node.js server..."
-                        nohup node app.js > server.log 2>&1 &
-                        '''
+                            // Start the Node.js server and redirect output to a log file
+                            echo 'Starting the Node.js server...'
+                            sh 'nohup node app.js > server.log 2>&1 &'
+                            sh 'tail -f server.log'
+                        } else {
+                            error 'Build folder does not exist. Deployment aborted.'
+                        }
                     }
                 }
             }
