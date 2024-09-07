@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        // Ensures the PATH includes the location of npm and Node.js installed by Homebrew
-        PATH = "/opt/homebrew/bin:${PATH}"
-    }
-
     stages {
         stage('Checkout') {
             steps {
@@ -17,8 +12,9 @@ pipeline {
             steps {
                 dir('aboutme') {
                     script {
-                        sh 'npm install --force'
-                        sh 'npm run build'
+                        // Disable ESLint checks
+                        sh 'npm install'
+                        sh 'npm run build' // ESLint should not be triggered during the build
                     }
                 }
             }
@@ -26,8 +22,9 @@ pipeline {
 
         stage('Install Node.js Dependencies') {
             steps {
-                dir('node-app') {
+                dir('aboutme') {
                     script {
+                        // Disable ESLint checks
                         sh 'npm install'
                     }
                 }
@@ -36,7 +33,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                dir('node-app') {
+                dir('aboutme') {
                     script {
                         sh 'node app.js'
                     }
