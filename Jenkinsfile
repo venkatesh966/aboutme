@@ -1,20 +1,22 @@
 pipeline {
     agent any
 
+    environment {
+        // Ensures the PATH includes the location of npm and Node.js installed by Homebrew
+        PATH = "/opt/homebrew/bin:${PATH}"
+    }
+
     stages {
         stage('Checkout') {
             steps {
-                // Checkout the code from the Git repository
                 checkout scm
             }
         }
 
         stage('Build React App') {
             steps {
-                // Navigate to the React app directory and build the React application
                 dir('aboutme') {
                     script {
-                        // Install dependencies and build the React app
                         sh 'npm install'
                         sh 'npm run build'
                     }
@@ -24,9 +26,8 @@ pipeline {
 
         stage('Install Node.js Dependencies') {
             steps {
-                dir('aboutme') {
+                dir('node-app') {
                     script {
-                        // Install Node.js dependencies
                         sh 'npm install'
                     }
                 }
@@ -35,10 +36,9 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                dir('aboutme') {
+                dir('node-app') {
                     script {
-                        // Restart the Node.js server or perform other deployment actions
-                        sh 'node app'  // Adjust according to your deployment strategy
+                        sh 'node app.js'
                     }
                 }
             }
@@ -48,7 +48,6 @@ pipeline {
     post {
         always {
             echo 'Cleaning up...'
-            // Add any cleanup actions if needed
         }
     }
 }
