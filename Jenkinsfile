@@ -60,7 +60,7 @@ pipeline {
                         
                         sleep 5
                         echo "Checking server status..."
-                        curl -I http://localhost:4000 || echo "Server is not responding"
+                        curl -I http://localhost:4200 || echo "Server is not responding"
                         '''
                        
                     }
