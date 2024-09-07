@@ -37,6 +37,7 @@ pipeline {
                     script {
                         // Build the React application
                         sh 'npm run build'
+                        sh 'ls -l build'
                     }
                 }
             }
