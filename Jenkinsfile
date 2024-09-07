@@ -43,29 +43,30 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
-            steps {
-                dir('/Users/venkateshmorpoju/Downloads/venkatesh/aboutme') { // Change this to your desired path
-                    script {
-                        sh '''
-                        # Stop any running server instances
-                        if pgrep -f "node app.js" > /dev/null; then
-                            echo "Stopping the Node.js server..."
-                            pkill -f "node app.js"
-                        fi
+      stage('Deploy') {
+    steps {
+        dir('/Users/venkateshmorpoju/Downloads/venkatesh/aboutme') { // Change this to your desired path
+            script {
+                sh '''
+                # Stop any running server instances
+                if pgrep -f "node app.js" > /dev/null; then
+                    echo "Stopping the Node.js server..."
+                    pkill -f "node app.js"
+                fi
 
-                        # Start the Node.js server in the background
-                        echo "Starting the Node.js server..."
-                        nohup node app.js > server.log 2>&1 &
+                # Start the Node.js server in the background and disown the process
+                echo "Starting the Node.js server..."
+                nohup node app.js > server.log 2>&1 & disown
 
-                        # Output server logs for debugging
-                        echo "Server logs:"
-                        tail -n 20 server.log
-                        '''
-                    }
-                }
+                # Output server logs for debugging
+                echo "Server logs:"
+                tail -n 20 server.log
+                '''
             }
         }
+    }
+}
+
 
         stage('Verify Deployment') {
             steps {
