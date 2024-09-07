@@ -59,7 +59,7 @@ pipeline {
                         nohup node app.js > server.log 2>&1 &
 
                         # Wait a few seconds for the server to start
-                        sleep 10
+                        sleep 40
                         '''
                     }
                 }
