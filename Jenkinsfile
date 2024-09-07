@@ -58,9 +58,6 @@ pipeline {
                         echo "Starting the Node.js server..."
                         nohup node app.js > server.log 2>&1 &
 
-                        # Wait a bit longer to ensure the server starts
-                        sleep 30
-
                         # Output server logs for debugging
                         echo "Server logs:"
                         tail -n 20 server.log
@@ -74,16 +71,22 @@ pipeline {
             steps {
                 script {
                     sh '''
-                    # Wait for the server to be fully operational
-                    sleep 10
+                    # Function to check if the server is up and running
+                    function check_server {
+                        curl -sSf http://localhost:4300 > /dev/null
+                    }
 
-                    # Verify if the server is responding
-                    if curl -sSf http://localhost:4300 > /dev/null; then
-                        echo "Server is up and running."
-                    else
-                        echo "Server is not responding. Check server.log for details."
-                        exit 1
-                    fi
+                    # Wait up to 60 seconds for the server to start
+                    for i in {1..60}; do
+                        if check_server; then
+                            echo "Server is up and running."
+                            exit 0
+                        fi
+                        sleep 1
+                    done
+
+                    echo "Server did not start in time. Check server.log for details."
+                    exit 1
                     '''
                 }
             }
@@ -93,12 +96,7 @@ pipeline {
     post {
         always {
             echo 'Cleaning up...'
-            // Optionally, stop the server if you want to ensure it is stopped after the build
-            sh '''
-            if pgrep -f "node app.js" > /dev/null; then
-                echo "Stopping the Node.js server..."
-            fi
-            '''
+            // No server stop command here
         }
     }
 }
