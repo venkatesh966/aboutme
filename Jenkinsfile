@@ -97,7 +97,6 @@ pipeline {
             sh '''
             if pgrep -f "node app.js" > /dev/null; then
                 echo "Stopping the Node.js server..."
-                pkill -f "node app.js"
             fi
             '''
         }
