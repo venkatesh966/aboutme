@@ -33,7 +33,7 @@ pipeline {
 
         stage('Build React App') {
             steps {
-                dir('/Users/venkateshmorpoju/aboutme') { // Change this to your desired path
+                dir('/Users/venkateshmorpoju/Downloads/venkatesh/aboutme') { // Change this to your desired path
                     script {
                         // Build the React application
                         sh 'npm run build'
@@ -45,7 +45,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                dir('/Users/venkateshmorpoju/aboutme') { // Change this to your desired path
+                dir('/Users/venkateshmorpoju/Downloads/venkatesh/aboutme') { // Change this to your desired path
                     script {
                         // Restart the Node.js server or perform other deployment actions
                         sh '''
