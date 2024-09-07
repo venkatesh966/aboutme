@@ -43,30 +43,26 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
-            steps {
-                dir('/Users/venkateshmorpoju/Downloads/venkatesh/aboutme') { // Change this to your desired path
-                    script {
-                        // Restart the Node.js server or perform other deployment actions
-                        sh '''
-                        if pgrep -f "node app.js" > /dev/null; then
-                            echo "Stopping the Node.js server..."
-                            pkill -f "node app.js"
-                        fi
+      stage('Deploy') {
+    steps {
+        dir('/Users/venkateshmorpoju/Downloads/venkatesh/aboutme') {
+            script {
+                sh '''
+                # Stop any running server instances
+                if pgrep -f "node app.js" > /dev/null; then
+                    echo "Stopping the Node.js server..."
+                    pkill -f "node app.js"
+                fi
 
-                        echo "Starting the Node.js server..."
-                        nohup node app.js > server.log 2>&1 &
-
-                        
-                        sleep 5
-                        echo "Checking server status..."
-                        curl -I http://localhost:4200 || echo "Server is not responding"
-                        '''
-                       
-                    }
-                }
+                # Start the Node.js server in the foreground for debugging
+                echo "Starting the Node.js server..."
+                node app.js
+                '''
             }
         }
+    }
+}
+
     }
 
     post {
