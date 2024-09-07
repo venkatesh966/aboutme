@@ -42,16 +42,6 @@ pipeline {
             }
         }
 
-        stage('Install Node.js Dependencies') {
-            steps {
-                dir('aboutme') {
-                    script {
-                        sh 'npm install'
-                    }
-                }
-            }
-        }
-
         stage('Deploy') {
             steps {
                 dir('aboutme') {
