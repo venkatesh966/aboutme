@@ -43,26 +43,47 @@ pipeline {
             }
         }
 
-      stage('Deploy') {
-    steps {
-        dir('/Users/venkateshmorpoju/Downloads/venkatesh/aboutme') {
-            script {
-                sh '''
-                # Stop any running server instances
-                if pgrep -f "node app.js" > /dev/null; then
-                    echo "Stopping the Node.js server..."
-                    pkill -f "node app.js"
-                fi
+        stage('Deploy') {
+            steps {
+                dir('/Users/venkateshmorpoju/Downloads/venkatesh/aboutme') { // Change this to your desired path
+                    script {
+                        sh '''
+                        # Stop any running server instances
+                        if pgrep -f "node app.js" > /dev/null; then
+                            echo "Stopping the Node.js server..."
+                            pkill -f "node app.js"
+                        fi
 
-                # Start the Node.js server in the foreground for debugging
-                echo "Starting the Node.js server..."
-                node app.js
-                '''
+                        # Start the Node.js server in the background
+                        echo "Starting the Node.js server..."
+                        nohup node app.js > server.log 2>&1 &
+
+                        # Wait a few seconds for the server to start
+                        sleep 10
+                        '''
+                    }
+                }
             }
         }
-    }
-}
 
+        stage('Verify Deployment') {
+            steps {
+                script {
+                    sh '''
+                    # Wait for the server to start
+                    sleep 10
+
+                    # Verify the server is running
+                    if curl -sSf http://localhost:4200 > /dev/null; then
+                        echo "Server is up and running."
+                    else
+                        echo "Server is not responding. Check server.log for details."
+                        exit 1
+                    fi
+                    '''
+                }
+            }
+        }
     }
 
     post {
