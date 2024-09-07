@@ -67,31 +67,6 @@ pipeline {
     }
 }
 
-
-        stage('Verify Deployment') {
-            steps {
-                script {
-                    sh '''
-                    # Function to check if the server is up and running
-                    function check_server {
-                        curl -sSf http://localhost:4300 > /dev/null
-                    }
-
-                    # Wait up to 60 seconds for the server to start
-                    for i in {1..60}; do
-                        if check_server; then
-                            echo "Server is up and running."
-                            exit 0
-                        fi
-                        sleep 1
-                    done
-
-                    echo "Server did not start in time. Check server.log for details."
-                    exit 1
-                    '''
-                }
-            }
-        }
     }
 
     post {
