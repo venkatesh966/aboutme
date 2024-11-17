@@ -1,65 +1,63 @@
-/* eslint-disable */
 import React, { Component } from "react";
 import Fade from "react-reveal";
+import './About.css';
 
 class About extends Component {
   render() {
     if (!this.props.data) return null;
 
-    const name = this.props.data.name;
-    const profilepic = "images/" + this.props.data.image;
-    const bio = this.props.data.bio;
-    const street = this.props.data.address.street;
-    const city = this.props.data.address.city;
-    const state = this.props.data.address.state;
-    const zip = this.props.data.address.zip;
-    const phone = this.props.data.phone;
-    const email = this.props.data.email;
-    const resumeDownload = this.props.data.resumedownload;
+    const { name, image, bio, about } = this.props.data;
+    const profilepic = "images/" + image;
+    const tutor = about.tutor;
+    const sportsAndEvents = about.sportsAndEvents;
+    const collaborationMessage = about.collaborationMessage;
+    const emailLink = about.emailLink;
 
     return (
       <section id="about">
-        <Fade duration={1000}>
-          <div className="row">
-            <div className="three columns">
-              <img
-                className="profile-pic"
-                src={profilepic}
-                alt="Nordic Giant Profile Pic"
-              />
+        <div className="about-wrapper">
+          <Fade duration={1000}>
+            <div className="row">
+              {/* Profile Picture Section */}
+              <div className="profile-pic-container">
+                <img
+                  className="profile-pic"
+                  src={profilepic}
+                  alt={`${name} Profile Pic`}
+                />
+              </div>
             </div>
-            <div className="nine columns main-col">
-              <h2>About Me</h2>
 
-              <p>{bio}</p>
-              {/* <div className="row">
-                <div className="columns contact-details">
-                  <h2>Contact Details</h2>
-                  <p className="address">
-                    <span>{name}</span>
-                    <br />
-                    <span>
-                      {street}
-                      <br />
-                      {city} {state}, {zip}
-                    </span>
-                    <br />
-                    <span>{phone}</span>
-                    <br />
-                    <span>{email}</span>
-                  </p>
-                </div>
-                <div className="columns download">
-                  <p>
-                    <a href={resumeDownload} className="button">
-                      <i className="fa fa-download"></i>Download Resume
-                    </a>
-                  </p>
-                </div>
-              </div> */}
+            {/* About Me Header */}
+            <div className="about-content" style={{ marginBottom: '20px' }}>
+              <div className="bio-box">
+                <h3 className="section-title">About Me</h3>
+                <p style={{ color: 'black' }}>{bio}</p>
+              </div>
             </div>
-          </div>
-        </Fade>
+
+            {/* About Me Details in Flex Layout */}
+            <div className="about-content-flex" style={{ display: 'flex' }}>
+              <div className="content-box">
+                <h3 className="section-title" style={{ fontSize: '14px' }}>🎓 Technical Tutor</h3>
+                <p style={{ color: 'black' }}>{tutor}</p>
+              </div>
+              <div className="content-box">
+                <h3 className="section-title" style={{ fontSize: '14px' }}>⚽ Sports & Events</h3>
+                <p style={{ color: 'black' }}>{sportsAndEvents}</p>
+              </div>
+              <div className="content-box">
+                <h3 className="section-title" style={{ fontSize: '14px' }}>💡 Do you have any idea?</h3>
+                <p style={{ color: 'black' }}>
+                  {collaborationMessage}{" "}
+                </p>
+              </div>
+            </div>
+
+            <div><p style={{color: 'black',marginTop: 10}}>Please feel free to reach out to me if you need any information or have any questions regarding my work, tutoring, or anything else. You can contact me at {emailLink}</p></div>
+
+          </Fade>
+        </div>
       </section>
     );
   }

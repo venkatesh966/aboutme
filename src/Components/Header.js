@@ -68,11 +68,27 @@ class Header extends Component {
             <hr />
             <Fade bottom duration={2000}>
               <ul className="social">
-                <a href={project} className="button btn project-btn" target="_blank">
-                  <i className="fa fa-book"></i>LinkedIn
+                <a
+                  href={project}
+                  className="button btn project-btn"
+                  target="_blank"
+                >
+                  <i className="fa fa-book"></i> LinkedIn
                 </a>
-                <a href={github} className="button btn github-btn" target="_blank">
-                  <i className="fa fa-github"></i>Github
+                <a
+                  href={github}
+                  className="button btn github-btn"
+                  style={{ marginRight: "25px" }}
+                  target="_blank"
+                >
+                  <i className="fa fa-github"></i> Github
+                </a>
+                <a
+                  href="https://www.npmjs.com/~venkatesh966"
+                  className="button btn open-source-btn"
+                  target="_blank"
+                >
+                  <i className="fa fa-cogs"></i> Open Source
                 </a>
               </ul>
             </Fade>

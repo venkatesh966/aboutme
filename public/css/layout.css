@@ -184,7 +184,7 @@ ul#nav li.current a { color: #fe6928; }
 #about {
    background: #000524;
    padding-top: 96px;
-   padding-bottom: 66px;
+   /* padding-bottom: 66px; */
    overflow: hidden;
 }
 
@@ -202,7 +202,8 @@ ul#nav li.current a { color: #fe6928; }
 }
 #about .profile-pic {
    position: relative;
-   height: 215px;
+   height: 430px;
+   width: 450px;
    /* width: 120px;
    height: 120px;
    border-radius: 100%; */
@@ -233,7 +234,7 @@ ul#nav li.current a { color: #fe6928; }
 
 #resume {
    background: #fff;
-   padding-top: 90px;
+   /* padding-top: 90px; */
    padding-bottom: 72px;
    overflow: hidden;
 }
