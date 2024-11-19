@@ -153,6 +153,13 @@
   "portfolio": {
     "projects": [
       {
+        "title": "Flowscript.AI",
+        "desc": "AI platform",
+        "category": "Business App, AI Development",
+        "image": "05.jpg",
+        "url": "https://www.flowscript.ai/"
+      },      
+      {
         "title": "Simplefin",
         "desc": "(Business App for Mobile)",
         "category": "Business App",
