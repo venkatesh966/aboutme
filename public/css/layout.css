@@ -200,14 +200,7 @@ ul#nav li.current a { color: #fe6928; }
    line-height: 30px;
    color: #ccc;
 }
-#about .profile-pic {
-   position: relative;
-   height: 430px;
-   width: 450px;
-   /* width: 120px;
-   height: 120px;
-   border-radius: 100%; */
-}
+
 #about .contact-details { width: 41.66667%; }
 #about .download {
    width: 58.33333%;

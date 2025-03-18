@@ -26,18 +26,18 @@ class About extends Component {
                   alt={`${name} Profile Pic`}
                 />
               </div>
-            </div>
 
-            {/* About Me Header */}
-            <div className="about-content" style={{ marginBottom: '20px' }}>
-              <div className="bio-box">
-                <h3 className="section-title">About Me</h3>
-                <p style={{ color: 'black' }}>{bio}</p>
+              {/* About Me Section */}
+              <div className="about-content">
+                <div className="bio-box">
+                  <h3 className="section-title">About Me</h3>
+                  <p style={{ color: 'black' }}>{bio}</p>
+                </div>
               </div>
             </div>
 
             {/* About Me Details in Flex Layout */}
-            <div className="about-content-flex" style={{ display: 'flex' }}>
+            <div className="about-content-flex" style={{ display: 'flex', marginTop: '20px' }}>
               <div className="content-box">
                 <h3 className="section-title" style={{ fontSize: '14px' }}>🎓 Technical Tutor</h3>
                 <p style={{ color: 'black' }}>{tutor}</p>
@@ -48,13 +48,17 @@ class About extends Component {
               </div>
               <div className="content-box">
                 <h3 className="section-title" style={{ fontSize: '14px' }}>💡 Do you have any idea?</h3>
-                <p style={{ color: 'black' }}>
-                  {collaborationMessage}{" "}
-                </p>
+                <p style={{ color: 'black' }}>{collaborationMessage}</p>
               </div>
             </div>
 
-            <div><p style={{color: 'black',marginTop: 10}}>Please feel free to reach out to me if you need any information or have any questions regarding my work, tutoring, or anything else. You can contact me at {emailLink}</p></div>
+            {/* Contact Information */}
+            <div>
+              <p style={{ color: 'black', marginTop: '10px' }}>
+                Please feel free to reach out to me if you need any information or have any questions regarding my work, tutoring, or anything else.
+                You can contact me at {emailLink}
+              </p>
+            </div>
 
           </Fade>
         </div>
