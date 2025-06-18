@@ -30,7 +30,7 @@ class About extends Component {
                 <div style={{
                   background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                   borderRadius: '20px',
-                  padding: '30px',
+                  padding: '21px',
                   color: 'white',
                   boxShadow: '0 15px 35px rgba(102, 126, 234, 0.3)',
                   position: 'relative',
@@ -63,11 +63,8 @@ class About extends Component {
                       lineHeight: '1.6',
                       opacity: '0.95'
                     }}>
-                      Software Engineer II at Sephora with a Master's from UGA and 5+ years of hands-on experience. 
-                      I build scalable web applications using ReactJS, Node.js, Spring Boot, and cloud technologies. 
-                      From AI-powered tools to real-time collaboration platforms, I love turning complex ideas into 
-                      simple, elegant solutions that people actually want to use. Currently designing microservices 
-                      and modernizing legacy systems while building my own products on the side.
+                      Software Engineer II at Sephora, with a Master's from UGA and 5+ years of experience building scalable full-stack web applications. I specialize in ReactJS, Node.js, Spring Boot, and cloud-native architectures.
+                      I've independently launched AI tools, Chrome extensions, and productivity apps that are publicly used and actively maintained. Currently focused on designing modern microservices, migrating legacy WMS systems, and scaling internal tools — while continuing to ship my own real-world products on the side.
                     </p>
                   </div>
                 </div>
@@ -168,7 +165,7 @@ class About extends Component {
                     }}></div>
                     
                     <div style={{ position: 'relative', zIndex: 2 }}>
-                      <div style={{ fontSize: '28px', marginBottom: '10px' }}>⚽</div>
+                      <div style={{ fontSize: '28px', marginBottom: '10px' }}>🏸</div>
                       <h3 style={{ 
                         fontSize: '16px', 
                         fontWeight: '700', 
