@@ -131,20 +131,19 @@ class Products extends Component {
                     <div style={{ position: 'relative', zIndex: 2, flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                       <div> 
                                                   <div style={{ fontSize: '32px', marginBottom: '8px' }}>{product.icon}</div>
-                                                  <h3 style={{ 
-                            fontSize: '20px',
-                            fontWeight: '800', 
-                            marginBottom: '10px',
-                            color: '#fff',
-                            letterSpacing: '0.5px',
-                            textShadow: '0 2px 4px rgba(0,0,0,0.3)' // Added text shadow for better contrast
-                          }}>
+                                                                          <h3 style={{ 
+                          fontSize: '20px',
+                          fontWeight: '800', 
+                          marginBottom: '10px',
+                          color: '#333',
+                          letterSpacing: '0.5px'
+                        }}>
                           {product.title}
                         </h3>
                                                   <p style={{ 
                             fontSize: '14px',
                             lineHeight: '1.4',
-                            color: 'rgba(255,255,255,0.9)',
+                            color: '#444',
                             marginBottom: '4px'
                           }}>
                             {product.description}
@@ -202,7 +201,7 @@ class Products extends Component {
                           minHeight: '45px',
                           display: 'flex',
                           alignItems: 'center',
-                          color: '#fff'
+                          color: '#333'
                         }}>
                           <div style={{ display: 'flex', alignItems: 'center' }}>
                             <span style={{ fontSize: '14px', marginRight: '6px' }}>{product.achievementIcon}</span>

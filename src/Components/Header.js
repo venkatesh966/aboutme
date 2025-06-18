@@ -3,6 +3,32 @@ import React, { Component } from "react";
 import ParticlesBg from "particles-bg";
 import Fade from "react-reveal";
 
+// Add CSS animations
+const styles = `
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+  }
+`;
+
+// Inject styles
+if (typeof document !== 'undefined') {
+  const styleSheet = document.createElement("style");
+  styleSheet.type = "text/css";
+  styleSheet.innerText = styles;
+  document.head.appendChild(styleSheet);
+}
+
 // Modal styles (can be moved to a CSS file)
 const modalStyle = {
   position: 'fixed',
@@ -108,9 +134,50 @@ class Header extends Component {
               </a>
             </li>
 
-            <li>
-              <a className="smoothscroll" href="#products">
+            <li style={{ position: 'relative' }}>
+              <a 
+                className="smoothscroll" 
+                href="#products"
+                style={{
+                  position: 'relative',
+                  color: 'white',
+                  fontWeight: '600',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0px',
+                  padding: '4px 10px',
+                  background: 'rgba(255, 255, 255, 0.1)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  borderRadius: '25px',
+                  boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.15)';
+                  e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.3)';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
+                  e.currentTarget.style.transform = 'translateY(0px)';
+                  e.currentTarget.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
+                  e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.2)';
+                }}
+              >
+                <i className="fa fa-cube" style={{ fontSize: '14px' }}></i>
                 Products
+                <span style={{
+                  display: 'inline-block',
+                  width: '6px',
+                  height: '6px',
+                  background: '#FF6F00',
+                  borderRadius: '50%',
+                  marginLeft: '2px',
+                  animation: 'pulse 2s infinite'
+                }}></span>
               </a>
             </li>
 
@@ -144,7 +211,7 @@ class Header extends Component {
             </Fade>
 
             {/* New Button for NoBridge Project */}
-            <Fade bottom duration={1600}>
+            {/* <Fade bottom duration={1600}>
               <div style={{ margin: '25px 0' }}>
                 <button
                   onClick={this.openNoBridgeModal}
@@ -174,7 +241,7 @@ class Header extends Component {
                   checkout my new project <span style={{ color: '#FFFFE0', fontWeight: '900' }}>NoBridge</span>
                 </button>
               </div>
-            </Fade>
+            </Fade> */}
 
             <hr />
             <Fade bottom duration={2000}>
